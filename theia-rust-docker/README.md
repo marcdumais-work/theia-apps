@@ -36,4 +36,6 @@ eg.
 
 A very simple rust example project is included in the example_project folder. It contains a build task and debug configuration which uses rust-gdb.
 
+## How does it work?
 
+The ex\* scripts check if a container exists and if so reuse it. If not the container is created. A command is ran inside the container to create a user corresponding to the user calling the ex script. If ex\_theia is ran the bashrc script is sourced after which the run.sh script is ran inside the container. The bashrc script changes the dir to the same location from which the ex script was ran (via the CONTAINER\_START\_PATH environment variable). This is possible because the users HOME dir is mounted inside the container. Next the bashrc script sources nvm\_setup.sh which activates a specific node version and adds yarn to the path. Lastly it sets up the rust build environment through RUSTUP\_HOME and CARGO\_HOME. Once the environent is sourced the run.sh script can actually start Theia.
