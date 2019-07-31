@@ -14,6 +14,7 @@
         "@theia/editor-preview": "latest",
         "@theia/file-search": "latest",
         "@theia/getting-started": "latest",
+        "@theia/typescript": "latest",
         "@theia/git": "latest",
         "@theia/json": "latest",
         "@theia/markers": "latest",
@@ -25,7 +26,8 @@
         "@theia/preview": "latest",
         "@theia/search-in-workspace": "latest",
         "@theia/terminal": "latest",
-        "@theia/textmate-grammars": "latest"
+        "@theia/textmate-grammars": "latest",
+        "typescript": "latest"
     },
     "devDependencies": {
         "@theia/cli": "latest",

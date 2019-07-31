@@ -24,6 +24,9 @@ RUN adduser --disabled-password --gecos '' theia && \
     chown -R theia:theia /home/project && \
     chown -R theia:theia /home/go && \
     chown -R theia:theia /home/go-tools;
+
+RUN npm install -g eslint
+
 USER theia
 
 ENV GO_VERSION=1.12 \
@@ -66,6 +69,8 @@ RUN curl -fsSL https://storage.googleapis.com/golang/go$GO_VERSION.$GOOS-$GOARCH
     go build -o $GOPATH/bin/gocode-gomod github.com/stamblerre/gocode && \
     rm -rf $GOPATH/src && \
     rm -rf $GOPATH/pkg
+
+ADD ./dbaeumer.vscode-eslint-1.9.0.vsix /home/theia/plugins 
 
 # configure Theia
 ENV SHELL=/bin/bash \
